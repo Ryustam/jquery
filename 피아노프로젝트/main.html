@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var music_list = ["./audio/1_do.wav", "./audio/2_re.wav", "./audio/3_mi.wav", "./audio/4_pa.wav",
+                "./audio/5_sol.wav", "./audio/6_ra.wav", "./audio/7_si.wav", "./audio/8_do.wav"
+            ];
+            var audio = new Audio();
+            var idx = 0 //배열 index
+            audio.src = music_list[idx]
+            //source
+            function do_1() {
+                audio.src = music_list[0]
+                audio.play()
+            }
+
+            function re_2() {
+                audio.src = music_list[1]
+                audio.play()
+            }
+            function mi_3() {
+                audio.src = music_list[2]
+                audio.play()
+            }
+            function pa_4() {
+                audio.src = music_list[3]
+                audio.play()
+            }
+            function sol_5() {
+                audio.src = music_list[4]
+                audio.play()
+            }
+            function ra_6() {
+                audio.src = music_list[5]
+                audio.play()
+            }
+            function si_7() {
+                audio.src = music_list[6]
+                audio.play()
+            }
+            function do_8() {
+                audio.src = music_list[7]
+                audio.play()
+            }
+
+            $(document).on("keydown", keyEventFnc);
+            //keydown (키가 눌려졌을때, keyEventFnc호출하라)
+            var um = "";
+
+            function keyEventFnc(e) {
+                //매개변수 e에 이벤트 객체가 들어온다.
+                //이벤트 객체에는 이벤트 관련 정보가있고...
+                var direct = "";
+                switch (e.keyCode) {
+                    case 65: 
+                        um = "do";
+                        do_1();
+                        break;
+                    case 83: 
+                        um = "re";
+                        re_2();
+                        break;
+                    case 68: 
+                        um = "mi";
+                        mi_3();
+                        break;
+                    case 70: 
+                        um = "pa";
+                        pa_4();
+                        break;
+                    case 71: 
+                        um = "sol";
+                        sol_5();
+                        break;
+                    case 72: 
+                        um = "ra";
+                        ra_6();
+                        break;
+                    case 74: 
+                        um = "si";
+                        si_7();
+                        break;
+                    case 75: 
+                        um = "do";
+                        do_8();
+                        break;
+
+                }
+                if (um) {
+                    $("#user_id").val(um);
+
+                }
+
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <p>
+        <input type="text" name="user_id" id="user_id">
+    </p>
+</body>
+
+</html>
